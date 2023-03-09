@@ -9,9 +9,11 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a>
+        <a >
+        firstName = "Anna"
+                  lastName = "Sultan"
+                  group = "RM-201"
           Learn React
-          Sultan Anna RM-201
         </a>
       </header>
     </div>
