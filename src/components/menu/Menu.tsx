@@ -2,9 +2,9 @@ import { inject, observer } from "mobx-react";
 import { Component } from "react";
 import { Item, Root } from "../../store/menu";
 import 'antd/dist/reset.css';
-import {
-  Button,
-  Input,
+import { 
+  Button, 
+  Input, 
   Form,
   message,
   Table,
@@ -26,8 +26,8 @@ interface MenuComponentState {
 @inject("rootTree")
 @observer
 class MenuComponent extends Component<
-  MenuComponentProps,
-  MenuComponentState>
+  MenuComponentProps, 
+  MenuComponentState> 
 {
   constructor(props: MenuComponentProps) {
     super(props);
@@ -43,7 +43,7 @@ class MenuComponent extends Component<
   async componentDidMount() {
     const { rootTree } = this.props;
     if (!rootTree) return <Spin size="large" />;
-
+    
     this.setState({ loading: true });
 
     const items = await this.getItemsFromLocalStorage();
@@ -83,11 +83,11 @@ class MenuComponent extends Component<
 
     const { itemName, itemTitle, itemDescription } = this.state;
     const { rootTree } = this.props;
-
+    
     if(!rootTree) return null;
 
     rootTree.menu.newItem(itemName, itemTitle, itemDescription);
-
+    
     this.setState({ menuData: [...rootTree.menu.items] });
 
     localStorage.setItem('Menu', JSON.stringify([...rootTree.menu.items]));
@@ -132,53 +132,53 @@ class MenuComponent extends Component<
       <div>
         <Spin size="large" spinning={this.state.loading}></Spin>
         <h1>Menu</h1>
-        <Form
+        <Form 
           color="red"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           style={{ maxWidth: 600 }}
         >
-          <Form.Item
-            label="Name"
+          <Form.Item 
+            label="Name" 
             name="name"
           >
-            <Input
+            <Input 
               allowClear
-              placeholder="input name"
-              value={itemName}
-              onChange={this.changeItemName}
+              placeholder="input name" 
+              value={itemName} 
+              onChange={this.changeItemName} 
             >
             </Input>
           </Form.Item>
-          <Form.Item
-            label="Title"
+          <Form.Item 
+            label="Title" 
             name="title"
           >
             <Input
               allowClear
-              placeholder="input title"
-              value={itemTitle}
+              placeholder="input title" 
+              value={itemTitle} 
               onChange={this.changeItemTitle}
             >
             </Input>
           </Form.Item>
-          <Form.Item
-            label="Description"
+          <Form.Item 
+            label="Description" 
             name="description"
           >
             <Input
               allowClear
-              placeholder="input description"
-              value={itemDescription}
+              placeholder="input description" 
+              value={itemDescription} 
               onChange={this.changeItemDescription}
             >
             </Input>
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button
-                block
-                type='primary'
-                htmlType="submit"
+            <Button 
+                block 
+                type='primary' 
+                htmlType="submit" 
                 onClick={ this.onSubmit }
               >
                 Submit
@@ -186,7 +186,7 @@ class MenuComponent extends Component<
           </Form.Item>
         </Form>
         <Table dataSource={dataSource} columns={columns} rowKey="id" />
-      </div>
+      </div> 
     );
   }
 }
