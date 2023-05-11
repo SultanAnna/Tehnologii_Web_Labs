@@ -2,7 +2,7 @@ import './App.css';
 import { Component } from "react";
 import { setupRootStore } from "./store/menu/setup";
 import { Provider } from "mobx-react";
-import { MenuComponent } from "./components/menu/Menu";
+import { MenuComponent } from './components/menu/Menu';
 
 interface Props {}
 
